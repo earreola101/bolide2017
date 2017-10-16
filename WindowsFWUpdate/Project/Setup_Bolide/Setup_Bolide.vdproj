@@ -641,7 +641,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Bolide"
         "ProductCode" = "8:{F256AFA5-300C-4E01-A941-517004E53643}"
-        "PackageCode" = "8:{275EA708-BE22-49F1-AFD2-16F0A9DDAFC3}"
+        "PackageCode" = "8:{1C5966B7-D1B5-459B-90C7-5986DA780F7A}"
         "UpgradeCode" = "8:{DFD70331-F402-44E4-9C7E-32CE08ECB125}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
