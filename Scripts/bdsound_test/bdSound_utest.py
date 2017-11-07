@@ -11,12 +11,11 @@ from time import sleep
 #=======================================================================
 #This is a simple script that can access the bdsound prototyp board.
 #The script works on version 0.1 of the bdsound TABLE/TV HUB Ver.0.1
+#Script can assemble a control packet and control the LED.
 #Install python version 2.7
 #Usage:
 # Step#1 make sure the comport is configured correctly.
 #=======================================================================
-
-#Script can assemble a control packet and control the LED.
 
 #configure below
 comport="COM6"
@@ -31,27 +30,22 @@ CMD_INFO_MUTE_MICPOD=0x0E03
 CMD_GET_LED_MICPOD=0x0E04
 CMD_SET_POST_FILER_EN=0x0E05
 CMD_SET_LOOPBACK_MICPOD=0x0E06
-
+MICPOD_LED_ON=1
+MICPOD_LED_OFF=0
 ON=1
 OFF=0
 
-MICPOD_LED_ON=1
-MICPOD_LED_OFF=0
 MAX_DATA_LEN=1024
-    
 HEADER_BYTES=2
 HEADER_0=0x55
 HEADER_1=0xAA
 LEN_BYTES=2
 CRC_BYTES=1
-
 PACKET_OVERHEAD=(HEADER_BYTES+LEN_BYTES+CRC_BYTES)
 COMMAND_OVERHEAD=10
 MAX_PACKET_LEN=1024
 MAX_MESSAGE_LEN=(MAX_PACKET_LEN-PACKET_OVERHEAD)
 RX_QUEUE_LEN=(MAX_PACKET_LEN*4)
-
-
 
 class tdm_command_t:
     command=0;
@@ -115,7 +109,6 @@ def Set(commandstate,cmdSate):
     del packet;
     return
 
-
 #==================================LED_TEST
 Set(CMD_SET_LED_MICPOD,MICPOD_LED_ON);
 sleep(0.5)
@@ -126,21 +119,6 @@ sleep(0.5)
 Set(CMD_SET_LED_MICPOD,MICPOD_LED_OFF);
 sleep(0.5)
 #==================================LED_TEST
-
-#==================================MUTE_TEST
-Set(CMD_SET_MUTE_MICPOD,ON);
-sleep(0.5)
-Set(CMD_SET_MUTE_MICPOD,OFF);
-sleep(0.5)
-Set(CMD_SET_MUTE_MICPOD,ON);
-sleep(0.5)
-Set(CMD_SET_MUTE_MICPOD,OFF);
-sleep(0.5)
-#==================================MUTE_TEST
-
-
-
-
 
 print("done")
 
